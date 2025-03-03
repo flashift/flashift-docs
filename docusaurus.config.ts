@@ -116,6 +116,17 @@ const config: Config = {
       additionalLanguages: ['bash', 'json'],
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        id: 'default',
+        changefreq: 'weekly',
+        priority: 0.5,
+      },
+    ],
+  ],
 };
 
 export default config;

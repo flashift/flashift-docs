@@ -8,7 +8,7 @@ sidebar_position: 4
 GET getTransactionInfo
 ```
 
-You can retrieve transaction information.
+You can retrieve a transaction information.
 
 
 ## HTTP Request
@@ -165,7 +165,7 @@ import TabItem from '@theme/TabItem';
 
   | Code       | Description
   |------------|-------------
-  | 429        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact pro@flashift.app, or you can wait until the limit is reset.       
+  | 429        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact affiliate@flashift.app, or you can wait until the limit is reset.       
   | 500        | There is an error on the server side.
 
   </TabItem>

@@ -8,7 +8,7 @@ sidebar_position: 2
 GET getEstimatedAmount
 ```
 
-You can retrieve a list of supported providers.
+This endpoint allows you to estimate the amount received when exchanging between two currencies.
 
 
 ## HTTP Request
@@ -191,7 +191,7 @@ import TabItem from '@theme/TabItem';
 
   | Message       | Description
   |------------|-------------
-  | OK        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact pro@flashift.app, or you can wait until the limit is reset.       
+  | OK        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact affiliate@flashift.app, or you can wait until the limit is reset.       
   | This pair is not available        | There is an error on the server side.
 
 
@@ -199,7 +199,7 @@ import TabItem from '@theme/TabItem';
 
   | Code       | Description
   |------------|-------------
-  | 429        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact pro@flashift.app, or you can wait until the limit is reset.       
+  | 429        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact affiliate@flashift.app, or you can wait until the limit is reset.       
   | 500        | There is an error on the server side.
 
   </TabItem>
