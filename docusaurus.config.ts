@@ -116,6 +116,15 @@ const config: Config = {
       additionalLanguages: ['bash', 'json'],
     },
   } satisfies Preset.ThemeConfig,
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'noindex, nofollow',
+      },
+    },
+  ],
 };
 
 export default config;
