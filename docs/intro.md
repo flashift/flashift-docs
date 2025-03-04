@@ -8,18 +8,14 @@ The Flashift API enables developers to integrate cryptocurrency exchange functio
 
 ## Key Features
 
-- **Feature 1**: Description of feature 1.
-- **Feature 2**: Description of feature 2.
-- **Feature 3**: Description of feature 3.
+- **Easy to Use**: The Flashift API is designed for simplicity, allowing developers to integrate with minimal effort.
+- **AI Tags**: Automatically categorize and tag transactions using advanced AI algorithms for better organization.
+- **No KYC**: Enjoy seamless transactions without the need for cumbersome Know Your Customer (KYC) processes.
 
 ## Getting Started
 
-To get started with Flashift, visit our [website](https://flashift.app) and sign up for an account.
+To get started with Flashift API, visit our [Getting Started](https://docs.flashift.app/docs/getting-started) section.
 
 ## Support
 
-For support, please contact our team at [support@flashift.app](mailto:support@flashift.app).
-
-## Community
-
-Join our community on [social media link] to stay updated with the latest news and updates.
+For support, please contact our team at [affiliate@flashift.app](mailto:affiliate@flashift.app).

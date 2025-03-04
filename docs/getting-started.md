@@ -12,9 +12,9 @@ Welcome to the Flashift API documentation. This guide will help you get started 
 
 ## Authentication
 
-Flashift API supports the following authentication methods:
+Flashift API supports the following authentication method:
 
-- **API Key**: Obtain your API key from the [Flashift Dashboard](https://dashboard.flashift.app).
+- **API Key**: To obtain your API key, please contact us at [affiliate@flashift.app](mailto:affiliate@flashift.app).
 
 ## Request/Response Format
 
@@ -26,7 +26,7 @@ The API supports the following formats:
 
 To ensure fair usage, the following rate limits are enforced:
 
-- **Max 10 requests per minute**: Please ensure your application adheres to this limit to avoid throttling.
+- **Maximum of 10 requests per minute**: Ensure your application complies with this limit to prevent throttling. If you require a higher limit, please contact us at [affiliate@flashift.app](mailto:affiliate@flashift.app).
 
 ## Error Handling
 
@@ -37,5 +37,3 @@ Common error codes and their meanings:
 - **403 Forbidden**: Authentication succeeded but authenticated user does not have access to the resource.
 - **404 Not Found**: The requested resource could not be found.
 - **500 Internal Server Error**: An error occurred on the server.
-
-For more detailed information, please refer to the [API documentation](https://docs.flashift.app).
