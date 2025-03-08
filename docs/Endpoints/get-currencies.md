@@ -1,20 +1,20 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Get Providers
+# Get Currencies
 
 ```js
-GET getProviders
+GET getCurrencies
 ```
 
-You can retrieve a list of supported providers.
+You can retrieve a list of cryptocurrencies.
 
 
 ## HTTP Request
 
 ```text
-https://interface.flashift.app/api/dev/v1/getProviders
+https://interface.flashift.app/api/dev/v1/getCurrencies
 ```
 
 ## Request
@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
     
     ```bash
     curl --location 
-    --request GET 'https://interface.flashift.app/api/dev/v1/getProviders' \
+    --request GET 'https://interface.flashift.app/api/dev/v1/getCurrencies' \
     --header 'Authorization: {{apiKey}}' \
     --header 'Accept: application/json'
     ```
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
     import requests
 
     # Define the API URL
-    url = 'https://interface.flashift.app/api/dev/v1/getProviders'
+    url = 'https://interface.flashift.app/api/dev/v1/getCurrencies'
 
     # Define the headers, including the API key
     headers = {
@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
     
     ```js
     // Define the API URL
-    const url = 'https://interface.flashift.app/api/dev/v1/getProviders';
+    const url = 'https://interface.flashift.app/api/dev/v1/getCurrencies';
 
     // Define the headers, including the API key and Accept header
     const headers = new Headers({
@@ -111,18 +111,38 @@ import TabItem from '@theme/TabItem';
 
     ```json title="application/json"
     [
-      {
-        "name": "FixedFloat",
-        "enable": true
-      },
-      {
-        "name": "Changelly",
-        "enable": false
-      },
-      {
-        "name": "ChangeNOW",
-        "enable": true
-      }
+        {
+            "symbol": "btc",
+            "fullname": "Bitcoin",
+            "name": "btc",
+            "network": "",
+            "explorer": "https://blockchair.com/search?q=",
+            "memo": false
+        },
+        {
+            "symbol": "bnbbsc",
+            "fullname": "Binance Smart Chain",
+            "name": "bnb",
+            "network": "BEP20",
+            "explorer": "https://bscscan.com/tx/",
+            "memo": false
+        },
+        {
+            "symbol": "usdterc20",
+            "fullname": "Tether",
+            "name": "usdt",
+            "network": "ERC20",
+            "explorer": "https://blockchair.com/search?q=",
+            "memo": false
+        },
+        {
+            "symbol": "usdttrc20",
+            "fullname": "Tether",
+            "name": "usdt",
+            "network": "TRC20",
+            "explorer": "https://tokenview.com/en/search/",
+            "memo": false
+        }
     ]
     ```
   </TabItem>
@@ -130,12 +150,16 @@ import TabItem from '@theme/TabItem';
     
     ### Response Parameters
 
-    array of ```provider```
+    array of ```currency```
     
     | Name       | Type                  | Description
     |------------|-----------------------|------------
-    | name       | string                | Provider's name
-    | enable     | boolean               | Indicates whether the provider is currently available.
+    | symbol     | string                | The symbol of the currency.
+    | fullname   | string                | The full name of the currency.
+    | name       | string                | The name of the currency.
+    | network    | string                | The network of the currency.
+    | explorer   | string                | The URL of the block explorer for the currency.
+    | memo       | boolean               | Indicates whether a memo is required for the currency.
     
 
   </TabItem>

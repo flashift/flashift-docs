@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Get Transaction Info
@@ -145,6 +145,19 @@ import TabItem from '@theme/TabItem';
   </TabItem>
   <TabItem value="success" label="Success">
     
+    ### Exchange Status
+
+    | Status      | Description                       |
+    |-------------|-----------------------------------|
+    | waiting     | The transaction is waiting to be processed. |
+    | confirming  | The transaction is being confirmed. |
+    | exchanging  | The transaction is in the process of exchanging currencies. |
+    | sending     | The transaction is being sent.    |
+    | finished    | The transaction has been completed successfully. |
+    | failed      | The transaction has failed. Please contact `support@flashift.app`       |
+    | refunded    | The transaction has been refunded. |
+
+
     ### Response Parameters
 
     

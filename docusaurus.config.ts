@@ -56,7 +56,7 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true
     },
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/flashift-cover.jpg',
     navbar: {
       title: 'Flashift API Docs',
       logo: {
