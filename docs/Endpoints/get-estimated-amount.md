@@ -29,16 +29,17 @@ import TabItem from '@theme/TabItem';
 
     | Name       | Type                  | Required | Description
     |------------|-----------------------|----------|------------
-    | X-API-Key  | string                | Yes      | Your API Key
+    | Authorization  | string                | Yes      | Your API Key
+    | Accept         | string                | Yes      | Set this to `application/json`
 
     
     ### Request Parameters
 
     | Name           | Type                  | Required | Description
     |----------------|-----------------------|----------|------------
-    | currency_from  | string                | Yes      | First Coin
-    | currency_to    | string                | Yes      | Second Coin
-    | amount         | string                | Yes      | The amount
+    | currency_from  | string                | Yes      | The currency you are exchanging from (e.g., BTC)
+    | currency_to    | string                | Yes      | The currency you are exchanging to (e.g., XMR)
+    | amount         | string                | Yes      | The amount of the currency you are exchanging from
 
   </TabItem>
   <TabItem value="curl" label="cURL">
@@ -46,7 +47,8 @@ import TabItem from '@theme/TabItem';
     ```bash
     curl --location 
     --request GET 'https://interface.flashift.app/api/dev/v1/getEstimatedAmount?currency_from=btc&currency_to=xmr&amount=0.1' \
-    --header 'X-Api-Key: {{apiKey}}'
+    --header 'Authorization: {{apiKey}}' \
+    --header 'Accept: application/json'
     ```
 
   </TabItem>
@@ -65,9 +67,10 @@ import TabItem from '@theme/TabItem';
         'amount': 0.1
     }
 
-    # Define the headers, including the API key
+    # Define the headers, including the API key and Accept header
     headers = {
-        'X-API-Key': '{{apiKey}}'
+        'Authorization': '{{apiKey}}',
+        'Accept': 'application/json'  # Ensure the correct content type is set
     }
 
     # Send the GET request with parameters and headers
@@ -96,9 +99,10 @@ import TabItem from '@theme/TabItem';
       amount: 0.1
     });
 
-    // Define the headers, including the API key
+    // Define the headers, including the API key and Accept header
     const headers = new Headers({
-      'X-API-Key': '{{apiKey}}'
+      'Authorization': '{{apiKey}}',
+      'Accept': 'application/json'  // Ensure the correct content type is set
     });
 
     // Send the GET request with parameters and headers
@@ -131,8 +135,6 @@ import TabItem from '@theme/TabItem';
 
     ```json title="application/json"
     {
-        "best_amount": "9707.965197",
-        "min_amount": "0.0000387",
         "message": "OK",
         "data": [
             {
@@ -148,7 +150,7 @@ import TabItem from '@theme/TabItem';
                 ]
             },
             {
-                "partner_name": "Exolix",
+                "provider_name": "Exolix",
                 "exchange_type": "floating",
                 "amount": "9671.93507",
                 "min_amount": "0.00050126",
@@ -167,21 +169,19 @@ import TabItem from '@theme/TabItem';
 
     | Name       | Type                  | Description
     |------------|-----------------------|------------
-    | best_amount| string                | Provider's name
-    | min_amount | string               | Indicates whether the provider is currently available.
-    | message | string               | Indicates whether the provider is currently available.
-    | data | array of ```exchange```               | Indicates whether the provider is currently available.
+    | message    | string                | A message indicating the status of the request.
+    | data       | array of ```exchange``` | An array containing exchange information.
 
     ```exchange``` schema:
     
     | Name         | Type                  | Description
     |--------------|-----------------------|------------
-    | provider_name| string                | Provider's name
-    | exchange_type| string               | Indicates whether the provider is currently available.
-    | amount       | string               | Indicates whether the provider is currently available.
-    | min_amount   | string               | Indicates whether the provider is currently available.
-    | max_amount   | string               | Indicates whether the provider is currently available.
-    | tags         | array of string      | Indicates whether the provider is currently available.
+    | provider_name| string                | The name of the exchange provider.
+    | exchange_type| string                | The type of exchange rate (e.g., ``floating``, ``fixed``).
+    | amount       | string                | The estimated amount received in the target currency.
+    | min_amount   | string                | The minimum amount allowed for the exchange.
+    | max_amount   | string                | The maximum amount allowed for the exchange.
+    | tags         | array of string       | Tags associated with the exchange, such as "Recommended" or "Best Rate".
     
 
   </TabItem>
@@ -191,8 +191,9 @@ import TabItem from '@theme/TabItem';
 
   | Message       | Description
   |------------|-------------
-  | OK        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact affiliate@flashift.app, or you can wait until the limit is reset.       
-  | This pair is not available        | There is an error on the server side.
+  | OK        | The request was successful, and the response contains the expected data.
+  | Pair is not valid        | The provided currency pair is not supported or invalid.
+  | Minimum amount problem   | The specified amount is below the minimum allowed limit.
 
 
   ### Error codes

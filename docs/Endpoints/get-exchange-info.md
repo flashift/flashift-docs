@@ -29,14 +29,15 @@ import TabItem from '@theme/TabItem';
 
     | Name       | Type                  | Required | Description
     |------------|-----------------------|----------|------------
-    | X-API-Key  | string                | Yes      | Your API Key
+    | Authorization  | string                | Yes      | Your API Key
+    | Accept         | string                | Yes      | Set this to `application/json`
 
 
     ### Request Parameters
 
     | Name          | Type                  | Required | Description
     |---------------|-----------------------|----------|------------
-    | exchange_id   | string                | Yes      | Your API Key
+    | exchange_id   | string                | Yes      | The unique identifier for the exchange transaction
 
   </TabItem>
   <TabItem value="curl" label="cURL">
@@ -44,7 +45,8 @@ import TabItem from '@theme/TabItem';
     ```bash
     curl --location 
     --request GET 'https://interface.flashift.app/api/dev/v1/getTransactionInfo?exchange_id=FixedFloat_floating_XXXX' \
-    --header 'X-API-Key: {{apiKey}}'
+    --header 'Authorization: {{apiKey}}' \
+    --header 'Accept: application/json'
     ```
 
   </TabItem>
@@ -61,9 +63,10 @@ import TabItem from '@theme/TabItem';
         'exchange_id': 'FixedFloat_floating_XXXX'  # Replace with the actual exchange_id
     }
 
-    # Define the headers, including the API key
+    # Define the headers, including the API key and Accept header
     headers = {
-        'X-API-Key': '{{apiKey}}'  # Replace with your actual API key
+        'Authorization': '{{apiKey}}',  # Replace with your actual API key
+        'Accept': 'application/json'  # Ensure the correct content type is set
     }
 
     # Send the GET request with parameters and headers
@@ -90,9 +93,10 @@ import TabItem from '@theme/TabItem';
       exchange_id: 'FixedFloat_floating_XXXX'  // Replace with the actual exchange_id
     });
 
-    // Define the headers, including the API key
+    // Define the headers, including the API key and Accept header
     const headers = new Headers({
-      'X-API-Key': '{{apiKey}}'  // Replace with your actual API key
+      'Authorization': '{{apiKey}}',  // Replace with your actual API key
+      'Accept': 'application/json'  // Ensure the correct content type is set
     });
 
     // Send the GET request with parameters and headers

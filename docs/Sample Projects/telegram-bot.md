@@ -53,7 +53,7 @@ dispatcher = updater.dispatcher
 ```python
 def get_providers():
     url = "https://interface.flashift.app/api/dev/v1/getProviders"
-    headers = {"X-API-Key": FLASHIFT_API_KEY}
+    headers = {"Authorization": FLASHIFT_API_KEY}
     response = requests.get(url, headers=headers)
     return response.json() if response.status_code == 200 else {}
 ```
@@ -63,7 +63,7 @@ def get_providers():
 def get_estimated_amount(currency_from, currency_to, amount):
     url = "https://interface.flashift.app/api/dev/v1/getEstimatedAmount"
     params = {"currency_from": currency_from, "currency_to": currency_to, "amount": amount}
-    headers = {"X-API-Key": FLASHIFT_API_KEY}
+    headers = {"Authorization": FLASHIFT_API_KEY}
     response = requests.get(url, headers=headers, params=params)
     return response.json() if response.status_code == 200 else {}
 ```
@@ -72,7 +72,7 @@ def get_estimated_amount(currency_from, currency_to, amount):
 ```python
 def create_transaction(provider, currency_from, currency_to, to_address, amount):
     url = "https://interface.flashift.app/api/dev/v1/createTransaction"
-    headers = {"X-API-Key": FLASHIFT_API_KEY, "Content-Type": "application/json"}
+    headers = {"Authorization": FLASHIFT_API_KEY, "Content-Type": "application/json"}
     data = {
         "provider_name": provider,
         "currency_from": currency_from,

@@ -28,21 +28,21 @@ import TabItem from '@theme/TabItem';
     
     ### Header Parameters
 
-    | Name       | Type                  | Required | Description
-    |------------|-----------------------|----------|------------
-    | X-API-Key  | string                | Yes      | Your API Key
+    | Name           | Type                  | Required | Description
+    |----------------|-----------------------|----------|------------
+    | Authorization  | string                | Yes      | Your API Key
+    | Accept         | string                | Yes      | Set this to `application/json`
 
     ### Body Parameters
-
     | Name          | Type                  | Required | Description
     |---------------|-----------------------|----------|------------
-    | provider_name | string                | Yes      | Your API Key
-    | currency_from | string                | Yes      | Your API Key
-    | currency_to   | string                | Yes      | Your API Key
-    | to_address    | string                | Yes      | Your API Key
-    | to_extra_id   | string                | Optional | Your API Key
-    | amount        | string                | Yes      | Your API Key
-    | fixed         | boolean               | Yes      | Your API Key
+    | provider_name | string                | Yes      | The name of the exchange provider.
+    | currency_from | string                | Yes      | The currency you are exchanging from (e.g., BTC).
+    | currency_to   | string                | Yes      | The currency you are exchanging to (e.g., USDTERC20).
+    | to_address    | string                | Yes      | The recipient's address for the target currency.
+    | to_extra_id   | string                | Optional | An additional identifier required by some currencies (e.g., destination tag for XRP).
+    | amount        | string                | Yes      | The amount of the currency you are exchanging from.
+    | fixed         | boolean               | Yes      | Indicates whether the exchange rate is fixed or floating.
 
 
   </TabItem>
@@ -55,6 +55,7 @@ import TabItem from '@theme/TabItem';
         "currency_from": "btc",
         "currency_to": "usdterc20",
         "to_address": "0x1f9090aaE28b8a3dCeaDf281B0F12828e676c326",
+        "to_extra_id": "",
         "amount": "0.1",
         "fixed": false
     }
@@ -82,7 +83,8 @@ import TabItem from '@theme/TabItem';
     
     ```bash
     curl --location --request POST 'https://interface.flashift.app/api/dev/v1/createTransaction' \
-    --header 'X-API-Key: {{apiKey}}' \
+    --header 'Authorization: {{apiKey}}' \
+    --header 'Accept: application/json' \
     --data-raw '{
             "provider_name": "Exolix",
             "currency_from": "btc",
@@ -106,8 +108,9 @@ import TabItem from '@theme/TabItem';
 
     # Define the headers, including the API key
     headers = {
-        'X-API-Key': '{{apiKey}}',
-        'Content-Type': 'application/json'  # Ensure the correct content type is set
+        'Authorization': '{{apiKey}}',
+        'Content-Type': 'application/json',  # Ensure the correct content type is set
+        'Accept': 'application/json'  # Add Accept header to specify the response format
     }
 
     # Define the JSON payload
@@ -142,8 +145,9 @@ import TabItem from '@theme/TabItem';
 
     // Define the headers, including the API key
     const headers = new Headers({
-      'X-API-Key': '{{apiKey}}',
-      'Content-Type': 'application/json'  // Ensure the correct content type is set
+      'Authorization': '{{apiKey}}',
+      'Content-Type': 'application/json',  // Ensure the correct content type is set
+      'Accept': 'application/json'  // Add Accept header to specify the response format
     });
 
     // Define the JSON payload
@@ -203,8 +207,8 @@ import TabItem from '@theme/TabItem';
     
     | Name         | Type                  | Description
     |--------------|-----------------------|------------
-    | status       | string                | Provider's name
-    | exchange_id  | string                | Indicates whether the provider is currently available.
+    | status       | string                | The status of the transaction (e.g., "OK" if successful)
+    | exchange_id  | string                | The unique identifier for the created exchange transaction
     
 
   </TabItem>

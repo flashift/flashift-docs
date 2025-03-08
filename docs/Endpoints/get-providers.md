@@ -27,9 +27,10 @@ import TabItem from '@theme/TabItem';
     
     ### Header Parameters
 
-    | Name       | Type                  | Required | Description
-    |------------|-----------------------|----------|------------
-    | X-API-Key  | string                | Yes      | Your API Key
+    | Name           | Type   | Required | Description                     |
+    |----------------|--------|----------|---------------------------------|
+    | Authorization  | string | Yes      | Your API Key                    |
+    | Accept         | string | Yes      | Set this to `application/json`  |
 
   </TabItem>
   <TabItem value="curl" label="cURL">
@@ -37,7 +38,8 @@ import TabItem from '@theme/TabItem';
     ```bash
     curl --location 
     --request GET 'https://interface.flashift.app/api/dev/v1/getProviders' \
-    --header 'X-Api-Key: {{apiKey}}'
+    --header 'Authorization: {{apiKey}}' \
+    --header 'Accept: application/json'
     ```
 
   </TabItem>
@@ -51,7 +53,8 @@ import TabItem from '@theme/TabItem';
 
     # Define the headers, including the API key
     headers = {
-        'X-API-Key': '{{apiKey}}'
+        'Authorization': '{{apiKey}}',
+        'Accept': 'application/json'  # Ensure the correct content type is set
     }
 
     # Send the GET request
@@ -72,9 +75,10 @@ import TabItem from '@theme/TabItem';
     // Define the API URL
     const url = 'https://interface.flashift.app/api/dev/v1/getProviders';
 
-    // Define the headers, including the API key
+    // Define the headers, including the API key and Accept header
     const headers = new Headers({
-      'X-API-Key': '{{apiKey}}'
+      'Authorization': '{{apiKey}}',
+      'Accept': 'application/json'  // Ensure the correct content type is set
     });
 
     // Send the GET request

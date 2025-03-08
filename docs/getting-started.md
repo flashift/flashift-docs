@@ -14,13 +14,13 @@ Welcome to the Flashift API documentation. This guide will help you get started 
 
 Flashift API supports the following authentication method:
 
-- **API Key**: To obtain your API key, please contact us at [affiliate@flashift.app](mailto:affiliate@flashift.app).
+- **Bearer Authentication**: To obtain your API key, please contact us at [affiliate@flashift.app](mailto:affiliate@flashift.app).
 
 ## Request/Response Format
 
 The API supports the following formats:
 
-- **JSON**: All requests and responses are in JSON format.
+- **JSON**: All requests and responses are in JSON format. Please set the `Accept` header to `application/json` in all your requests.
 
 ## Rate Limits
 
