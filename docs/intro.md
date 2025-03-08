@@ -10,7 +10,7 @@ The Flashift API enables developers to integrate cryptocurrency exchange functio
 
 - **Easy to Use**: The Flashift API is designed for simplicity, allowing developers to integrate with minimal effort.
 - **AI Tags**: Automatically categorize and tag transactions using advanced AI algorithms for better organization.
-- **No KYC**: Enjoy seamless transactions without the need for cumbersome Know Your Customer (KYC) processes.
+- **No Registration**: Enjoy seamless transactions without the need for cumbersome registration processes.
 
 ## Getting Started
 

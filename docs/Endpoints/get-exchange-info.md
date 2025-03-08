@@ -167,6 +167,10 @@ import TabItem from '@theme/TabItem';
 
   ### Error codes
 
+  | Status | Description
+  |--------|-------------
+  | Error  | The specified transaction could not be located.
+
   | Code       | Description
   |------------|-------------
   | 429        | This means you’ve already reached the API limit. If you need an increased rate limit, please contact affiliate@flashift.app, or you can wait until the limit is reset.       
