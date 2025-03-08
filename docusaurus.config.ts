@@ -117,13 +117,7 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
   headTags: [
-    {
-      tagName: 'meta',
-      attributes: {
-        name: 'robots',
-        content: 'noindex, nofollow',
-      },
-    },
+    
   ],
 };
 
