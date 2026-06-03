@@ -31,6 +31,17 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      'docusaurus-plugin-llms',
+      {
+        excludeImports: true,
+        removeDuplicateHeadings: true,
+        generateLLMsFullTxt: true,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
