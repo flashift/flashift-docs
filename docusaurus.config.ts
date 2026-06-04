@@ -40,6 +40,7 @@ const config: Config = {
         generateLLMsFullTxt: true,
       },
     ],
+    'docusaurus-markdown-source-plugin',
   ],
 
   presets: [
