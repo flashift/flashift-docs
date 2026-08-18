@@ -15,7 +15,7 @@ You can create a new transaction.
 ## HTTP Request
 
 ```text
-https://interface.flashift.app/api/dev/v1/createTransaction
+https://interfacev2.flashift.app/api/dev/v2/createTransaction
 ```
 
 ## Request
@@ -37,8 +37,10 @@ import TabItem from '@theme/TabItem';
     | Name          | Type                  | Required | Description
     |---------------|-----------------------|----------|------------
     | provider_name | string                | Yes      | The name of the exchange provider.
-    | currency_from | string                | Yes      | The currency you are exchanging from (e.g., BTC).
-    | currency_to   | string                | Yes      | The currency you are exchanging to (e.g., USDTERC20).
+    | symbol_from | string                | Yes      | The symbol you are exchanging from (e.g., BTC).
+    | network_from | string                | Yes      | The network you are exchanging from (e.g., BTC).
+    | symbol_to   | string                | Yes      | The symbol you are exchanging to (e.g., USDT).
+    | network_to   | string                | Yes      | The symbol you are exchanging to (e.g., ETH).
     | to_address    | string                | Yes      | The recipient's address for the target currency.
     | to_extra_id   | string                | Optional | An additional identifier required by some currencies (e.g., destination tag for XRP).
     | amount        | string                | Yes      | The amount of the currency you are exchanging from.
@@ -52,8 +54,10 @@ import TabItem from '@theme/TabItem';
     ```json title="application/json"
     {
         "provider_name": "Exolix",
-        "currency_from": "btc",
-        "currency_to": "usdterc20",
+        "symbol_from": "btc",
+        "network_from": "btc",
+        "symbol_to": "usdt",
+        "network_to": "eth",
         "to_address": "0x1f9090aaE28b8a3dCeaDf281B0F12828e676c326",
         "to_extra_id": "",
         "amount": "0.1",
@@ -67,8 +71,10 @@ import TabItem from '@theme/TabItem';
         ```json title="application/json"
         {
             "provider_name": "Exolix",
-            "currency_from": "btc",
-            "currency_to": "xrp",
+            "symbol_from": "btc",
+            "network_from": "btc",
+            "symbol_to": "xrp",
+            "network_to": "xrp",
             "to_address": "rGrvdFfjLxMb7L6s8toi5tEeEtHgP9QDMy",
             "to_extra_id": "3002133",
             "amount": "0.1",
@@ -82,13 +88,15 @@ import TabItem from '@theme/TabItem';
   <TabItem value="curl" label="cURL">
     
     ```bash
-    curl --location --request POST 'https://interface.flashift.app/api/dev/v1/createTransaction' \
+    curl --location --request POST 'https://interfacev2.flashift.app/api/dev/v2/createTransaction' \
     --header 'Authorization: {{apiKey}}' \
     --header 'Accept: application/json' \
     --data-raw '{
             "provider_name": "Exolix",
-            "currency_from": "btc",
-            "currency_to": "xrp",
+            "symbol_from": "btc",
+            "network_from": "btc",
+            "symbol_to": "xrp",
+            "network_to": "xrp",
             "to_address": "rGrvdFfjLxMb7L6s8toi5tEeEtHgP9QDMy",
             "to_extra_id": "3002133",
             "amount": "0.1",
@@ -104,7 +112,7 @@ import TabItem from '@theme/TabItem';
     import json
 
     # Define the API URL
-    url = 'https://interface.flashift.app/api/dev/v1/createTransaction'
+    url = 'https://interfacev2.flashift.app/api/dev/v2/createTransaction'
 
     # Define the headers, including the API key
     headers = {
@@ -116,8 +124,10 @@ import TabItem from '@theme/TabItem';
     # Define the JSON payload
     data = {
         "provider_name": "Exolix",
-        "currency_from": "btc",
-        "currency_to": "xrp",
+        "symbol_from": "btc",
+        "network_from": "btc",
+        "symbol_to": "xrp",
+        "network_to": "xrp",
         "to_address": "rGrvdFfjLxMb7L6s8toi5tEeEtHgP9QDMy",
         "to_extra_id": "3002133",
         "amount": "0.1",
@@ -141,7 +151,7 @@ import TabItem from '@theme/TabItem';
     
     ```js
     // Define the API URL
-    const url = 'https://interface.flashift.app/api/dev/v1/createTransaction';
+    const url = 'https://interfacev2.flashift.app/api/dev/v2/createTransaction';
 
     // Define the headers, including the API key
     const headers = new Headers({
@@ -153,8 +163,10 @@ import TabItem from '@theme/TabItem';
     // Define the JSON payload
     const data = {
       provider_name: "Exolix",
-      currency_from: "btc",
-      currency_to: "xrp",
+      "symbol_from": "btc",
+      "network_from": "btc",
+      "symbol_to": "xrp",
+      "network_to": "xrp",
       to_address: "rGrvdFfjLxMb7L6s8toi5tEeEtHgP9QDMy",
       to_extra_id: "3002133",
       amount: "0.1",

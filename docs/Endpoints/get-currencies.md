@@ -14,7 +14,7 @@ You can retrieve a list of cryptocurrencies.
 ## HTTP Request
 
 ```text
-https://interface.flashift.app/api/dev/v1/getCurrencies
+https://interfacev2.flashift.app/api/dev/v2/getCurrencies
 ```
 
 ## Request
@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
     
     ```bash
     curl --location 
-    --request GET 'https://interface.flashift.app/api/dev/v1/getCurrencies' \
+    --request GET 'https://interfacev2.flashift.app/api/dev/v2/getCurrencies' \
     --header 'Authorization: {{apiKey}}' \
     --header 'Accept: application/json'
     ```
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
     import requests
 
     # Define the API URL
-    url = 'https://interface.flashift.app/api/dev/v1/getCurrencies'
+    url = 'https://interfacev2.flashift.app/api/dev/v2/getCurrencies'
 
     # Define the headers, including the API key
     headers = {
@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
     
     ```js
     // Define the API URL
-    const url = 'https://interface.flashift.app/api/dev/v1/getCurrencies';
+    const url = 'https://interfacev2.flashift.app/api/dev/v2/getCurrencies';
 
     // Define the headers, including the API key and Accept header
     const headers = new Headers({
@@ -111,38 +111,38 @@ import TabItem from '@theme/TabItem';
 
     ```json title="application/json"
     [
-        {
-            "symbol": "btc",
-            "fullname": "Bitcoin",
-            "name": "btc",
-            "network": "",
-            "explorer": "https://blockchair.com/search?q=",
-            "memo": false
-        },
-        {
-            "symbol": "bnbbsc",
-            "fullname": "Binance Smart Chain",
-            "name": "bnb",
-            "network": "BEP20",
-            "explorer": "https://bscscan.com/tx/",
-            "memo": false
-        },
-        {
-            "symbol": "usdterc20",
-            "fullname": "Tether",
-            "name": "usdt",
-            "network": "ERC20",
-            "explorer": "https://blockchair.com/search?q=",
-            "memo": false
-        },
-        {
-            "symbol": "usdttrc20",
-            "fullname": "Tether",
-            "name": "usdt",
-            "network": "TRC20",
-            "explorer": "https://tokenview.com/en/search/",
-            "memo": false
-        }
+      {
+          "symbol": "rlusd",
+          "network": "eth",
+          "fullname": "Ripple USD",
+          "image": "https://static.flashift.app/image/coin/L1utwQyBQ/rlusd.png",
+          "memo": false,
+          "explorer": "https://blockchair.com/ethereum/transaction/"
+      },
+      {
+          "symbol": "rlusd",
+          "network": "xrp",
+          "fullname": "Ripple USD",
+          "image": "https://static.flashift.app/image/coin/L1utwQyBQ/rlusd.png",
+          "memo": true,
+          "explorer": "https://blockchair.com/xrp-ledger/transaction/"
+      },
+      {
+          "symbol": "paxg",
+          "network": "eth",
+          "fullname": "PAX Gold",
+          "image": "https://static.flashift.app/image/coin/YRTkUcMi/paxg.svg",
+          "memo": false,
+          "explorer": "https://blockchair.com/ethereum/transaction/"
+      },
+      {
+          "symbol": "wlfi",
+          "network": "eth",
+          "fullname": "World Liberty Financial",
+          "image": "https://static.flashift.app/image/coin/gbTmiRLbC/wlfi.PNG",
+          "memo": false,
+          "explorer": "https://blockchair.com/ethereum/transaction/"
+      }
     ]
     ```
   </TabItem>
@@ -155,11 +155,11 @@ import TabItem from '@theme/TabItem';
     | Name       | Type                  | Description
     |------------|-----------------------|------------
     | symbol     | string                | The symbol of the currency.
-    | fullname   | string                | The full name of the currency.
-    | name       | string                | The name of the currency.
     | network    | string                | The network of the currency.
-    | explorer   | string                | The URL of the block explorer for the currency.
+    | fullname   | string                | The full name of the currency.
+    | image      | string                | The URL of the image for the currency.
     | memo       | boolean               | Indicates whether a memo is required for the currency.
+    | explorer   | string                | The URL of the block explorer for the currency.
     
 
   </TabItem>

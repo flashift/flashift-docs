@@ -14,7 +14,7 @@ You can retrieve a transaction information.
 ## HTTP Request
 
 ```text
-https://interface.flashift.app/api/dev/v1/getTransactionInfo
+https://interfacev2.flashift.app/api/dev/v2/getTransactionInfo
 ```
 
 ## Request
@@ -44,7 +44,7 @@ import TabItem from '@theme/TabItem';
     
     ```bash
     curl --location 
-    --request GET 'https://interface.flashift.app/api/dev/v1/getTransactionInfo?exchange_id=FixedFloat_floating_XXXX' \
+    --request GET 'https://interfacev2.flashift.app/api/dev/v2/getTransactionInfo?exchange_id=FixedFloat_floating_XXXX' \
     --header 'Authorization: {{apiKey}}' \
     --header 'Accept: application/json'
     ```
@@ -56,7 +56,7 @@ import TabItem from '@theme/TabItem';
     import requests
 
     # Define the API URL with query parameters
-    url = 'https://interface.flashift.app/api/dev/v1/getTransactionInfo'
+    url = 'https://interfacev2.flashift.app/api/dev/v2/getTransactionInfo'
 
     # Define the query parameters
     params = {
@@ -86,7 +86,7 @@ import TabItem from '@theme/TabItem';
     
     ```js
     // Define the API URL with query parameters
-    const url = 'https://interface.flashift.app/api/dev/v1/getTransactionInfo';
+    const url = 'https://interfacev2.flashift.app/api/dev/v2/getTransactionInfo';
 
     // Define the query parameters
     const params = new URLSearchParams({
@@ -129,8 +129,10 @@ import TabItem from '@theme/TabItem';
 
     ```json title="application/json"
     {
-        "currency_from": "btc",
-        "currency_to": "eth",
+        "symbol_from": "btc",
+        "network_from": "btc",
+        "symbol_to": "eth",
+        "network_to": "eth",
         "amount_from": "0.1",
         "amount_to": "9833.9734",
         "address_from": "bc1qtc20qp3scn4fuscmhplkuxne2k25g5ycafshye",
@@ -163,8 +165,10 @@ import TabItem from '@theme/TabItem';
     
     | Name         | Type     | Description                                      |
     |--------------|----------|--------------------------------------------------|
-    | currency_from| string   | The currency being exchanged from.               |
-    | currency_to  | string   | The currency being exchanged to.                 |
+    | symbol_from| string   | The symbol being exchanged from.               |
+    | network_from| string   | The network being exchanged from.               |
+    | symbol_to  | string   | The symbol being exchanged to.                 |
+    | network_to| string   | The network being exchanged from.               |
     | amount_from  | string   | The amount of currency being exchanged from.     |
     | amount_to    | string   | The amount of currency being exchanged to.       |
     | address_from | string   | The address from which the currency is sent.     |

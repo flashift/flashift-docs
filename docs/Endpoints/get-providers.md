@@ -14,7 +14,7 @@ You can retrieve a list of supported providers.
 ## HTTP Request
 
 ```text
-https://interface.flashift.app/api/dev/v1/getProviders
+https://interfacev2.flashift.app/api/dev/v2/getProviders
 ```
 
 ## Request
@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
     
     ```bash
     curl --location 
-    --request GET 'https://interface.flashift.app/api/dev/v1/getProviders' \
+    --request GET 'https://interfacev2.flashift.app/api/dev/v2/getProviders' \
     --header 'Authorization: {{apiKey}}' \
     --header 'Accept: application/json'
     ```
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
     import requests
 
     # Define the API URL
-    url = 'https://interface.flashift.app/api/dev/v1/getProviders'
+    url = 'https://interfacev2.flashift.app/api/dev/v2/getProviders'
 
     # Define the headers, including the API key
     headers = {
@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
     
     ```js
     // Define the API URL
-    const url = 'https://interface.flashift.app/api/dev/v1/getProviders';
+    const url = 'https://interfacev2.flashift.app/api/dev/v2/getProviders';
 
     // Define the headers, including the API key and Accept header
     const headers = new Headers({

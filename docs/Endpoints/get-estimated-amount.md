@@ -14,7 +14,7 @@ This endpoint allows you to estimate the amount received when exchanging between
 ## HTTP Request
 
 ```text
-https://interface.flashift.app/api/dev/v1/getEstimatedAmount
+https://interfacev2.flashift.app/api/dev/v2/getEstimatedAmount
 ```
 
 ## Request
@@ -37,8 +37,10 @@ import TabItem from '@theme/TabItem';
 
     | Name           | Type                  | Required | Description
     |----------------|-----------------------|----------|------------
-    | currency_from  | string                | Yes      | The currency you are exchanging from (e.g., BTC)
-    | currency_to    | string                | Yes      | The currency you are exchanging to (e.g., XMR)
+    | symbol_from  | string                | Yes      | The symbol you are exchanging from (e.g., BTC)
+    | network_from  | string                | Yes      | The network you are exchanging from (e.g., BTC)
+    | symbol_to    | string                | Yes      | The symbol you are exchanging to (e.g., XMR)
+    | network_to    | string                | Yes      | The network you are exchanging to (e.g., XMR)
     | amount         | string                | Yes      | The amount of the currency you are exchanging from
 
   </TabItem>
@@ -46,7 +48,7 @@ import TabItem from '@theme/TabItem';
     
     ```bash
     curl --location 
-    --request GET 'https://interface.flashift.app/api/dev/v1/getEstimatedAmount?currency_from=btc&currency_to=xmr&amount=0.1' \
+    --request GET 'https://interfacev2.flashift.app/api/dev/v2/getEstimatedAmount?symbol_from=btc&network_from=btc&symbol_to=xmr&network_to=xmr&amount=0.1' \
     --header 'Authorization: {{apiKey}}' \
     --header 'Accept: application/json'
     ```
@@ -58,12 +60,14 @@ import TabItem from '@theme/TabItem';
     import requests
 
     # Define the API URL with query parameters
-    url = 'https://interface.flashift.app/api/dev/v1/getEstimatedAmount'
+    url = 'https://interfacev2.flashift.app/api/dev/v2/getEstimatedAmount'
 
     # Define the query parameters
     params = {
-        'currency_from': 'btc',
-        'currency_to': 'xmr',
+        'symbol_from': 'btc',
+        'network_from': 'btc',
+        'symbol_to': 'xmr',
+        'network_to': 'xmr',
         'amount': 0.1
     }
 
@@ -90,12 +94,14 @@ import TabItem from '@theme/TabItem';
     
     ```js
     // Define the API URL with query parameters
-    const url = 'https://interface.flashift.app/api/dev/v1/getEstimatedAmount';
+    const url = 'https://interfacev2.flashift.app/api/dev/v2/getEstimatedAmount';
 
     // Define the query parameters
     const params = new URLSearchParams({
-      currency_from: 'btc',
-      currency_to: 'xmr',
+      'symbol_from': 'btc',
+      'network_from': 'btc',
+      'symbol_to': 'xmr',
+      'network_to': 'xmr',
       amount: 0.1
     });
 

@@ -29,7 +29,7 @@ This guide explains how to create a **Telegram bot** using Python that allows us
 
 ## Step 2: Setting Up Flashift API
 ### Obtain API Key
-- Sign up on [Flashift](https://flashift.app/) and get an **API Key**.
+- Sign up on [Flashift](https://flashift.app/auth/register/) and get an **API Key**.
 - Store the API Key securely.
 
 ## Step 3: Writing the Telegram Bot Code
@@ -52,7 +52,7 @@ dispatcher = updater.dispatcher
 ### **2. Get Supported Providers**
 ```python
 def get_providers():
-    url = "https://interface.flashift.app/api/dev/v1/getProviders"
+    url = "https://interfacev2.flashift.app/api/dev/v2/getProviders"
     headers = {"Authorization": FLASHIFT_API_KEY}
     response = requests.get(url, headers=headers)
     return response.json() if response.status_code == 200 else {}
@@ -60,9 +60,9 @@ def get_providers():
 
 ### **3. Get Estimated Exchange Amount**
 ```python
-def get_estimated_amount(currency_from, currency_to, amount):
-    url = "https://interface.flashift.app/api/dev/v1/getEstimatedAmount"
-    params = {"currency_from": currency_from, "currency_to": currency_to, "amount": amount}
+def get_estimated_amount(symbol_from, network_from, symbol_to, network_to, amount):
+    url = "https://interfacev2.flashift.app/api/dev/v2/getEstimatedAmount"
+    params = {"symbol_from": symbol_from, "network_from": network_from, "symbol_to": symbol_to, "network_to": network_to, "amount": amount}
     headers = {"Authorization": FLASHIFT_API_KEY}
     response = requests.get(url, headers=headers, params=params)
     return response.json() if response.status_code == 200 else {}
@@ -70,13 +70,15 @@ def get_estimated_amount(currency_from, currency_to, amount):
 
 ### **4. Create an Exchange Transaction**
 ```python
-def create_transaction(provider, currency_from, currency_to, to_address, amount):
-    url = "https://interface.flashift.app/api/dev/v1/createTransaction"
+def create_transaction(provider, symbol_from, network_from, symbol_to, network_to, to_address, amount):
+    url = "https://interfacev2.flashift.app/api/dev/v2/createTransaction"
     headers = {"Authorization": FLASHIFT_API_KEY, "Content-Type": "application/json"}
     data = {
         "provider_name": provider,
-        "currency_from": currency_from,
-        "currency_to": currency_to,
+        "symbol_from": symbol_from,
+        "network_from": network_from,
+        "symbol_to": symbol_to,
+        "network_to": network_to,
         "to_address": to_address,
         "amount": str(amount),
         "fixed": False
@@ -107,13 +109,13 @@ dispatcher.add_handler(CommandHandler("providers", providers))
 #### `/estimate` Command
 ```python
 def estimate(update: Update, context: CallbackContext):
-    if len(context.args) < 3:
-        update.message.reply_text("Usage: /estimate BTC ETH 0.1")
+    if len(context.args) < 5:
+        update.message.reply_text("Usage: /estimate BTC mainnet ETH mainnet 0.1")
         return
     
-    currency_from, currency_to, amount = context.args
-    data = get_estimated_amount(currency_from, currency_to, amount)
-    message = f"Estimated {amount} {currency_from} -> {data.get('best_amount', 'N/A')} {currency_to}"
+    symbol_from, network_from, symbol_to, network_to, amount = context.args
+    data = get_estimated_amount(symbol_from, network_from, symbol_to, network_to, amount)
+    message = f"Estimated {amount} {symbol_from} ({network_from}) -> {data.get('best_amount', 'N/A')} {symbol_to} ({network_to})"
     update.message.reply_text(message)
 
 dispatcher.add_handler(CommandHandler("estimate", estimate))
@@ -122,12 +124,12 @@ dispatcher.add_handler(CommandHandler("estimate", estimate))
 #### `/exchange` Command
 ```python
 def exchange(update: Update, context: CallbackContext):
-    if len(context.args) < 4:
-        update.message.reply_text("Usage: /exchange provider BTC ETH wallet_address 0.1")
+    if len(context.args) < 6:
+        update.message.reply_text("Usage: /exchange provider BTC mainnet ETH mainnet wallet_address 0.1")
         return
     
-    provider, currency_from, currency_to, to_address, amount = context.args
-    data = create_transaction(provider, currency_from, currency_to, to_address, amount)
+    provider, symbol_from, network_from, symbol_to, network_to, to_address, amount = context.args
+    data = create_transaction(provider, symbol_from, network_from, symbol_to, network_to, to_address, amount)
     message = f"Transaction Created! ID: {data.get('exchange_id', 'N/A')}"
     update.message.reply_text(message)
 

@@ -8,14 +8,13 @@ Welcome to the Flashift API documentation. This guide will help you get started 
 
 ## Base URL
 
-- **Production**: `https://interface.flashift.app/api/dev/v1`
+- **Production**: `https://interfacev2.flashift.app/api/dev/v2`
 
 ## Authentication
 
 Flashift API supports the following authentication method:
 
-- **Bearer Authentication**: To obtain your API key, please contact us at [affiliate@flashift.app](mailto:affiliate@flashift.app).
-
+- **Bearer Authentication**: To obtain your API key, please sign up on [Flashift](https://flashift.app/auth/register/). Then, navigate to Settings and click the Get API Key button.
 ## Request/Response Format
 
 The API supports the following formats:
