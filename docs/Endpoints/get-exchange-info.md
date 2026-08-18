@@ -131,17 +131,20 @@ import TabItem from '@theme/TabItem';
     {
         "symbol_from": "btc",
         "network_from": "btc",
-        "symbol_to": "eth",
+        "symbol_to": "usdt",
         "network_to": "eth",
         "amount_from": "0.1",
-        "amount_to": "9833.9734",
-        "address_from": "bc1qtc20qp3scn4fuscmhplkuxne2k25g5ycafshye",
-        "extra_from": null,
+        "amount_to": "6403.14",
+        "address_from": "bc1qdej29kmxzerep8tae9pz3hmpp86nxe8txvg50u",
         "address_to": "0x1f9090aaE28b8a3dCeaDf281B0F12828e676c326",
-        "extra_to": null,
-        "status": "waiting",
+        "address_refund": null,
+        "status": "overdue",
         "hash_from": null,
         "hash_to": null,
+        "created_at": 1787078231,
+        "extra_from": null,
+        "extra_to": null,
+        "extra_refund": null
     }
     ```
   </TabItem>
@@ -178,6 +181,8 @@ import TabItem from '@theme/TabItem';
     | status       | string   | The current status of the transaction.           |
     | hash_from    | string   | The transaction hash for the sending currency.   |
     | hash_to      | string   | The transaction hash for the receiving currency. |
+    | address_refund | string | The refund has been sent to the designated address. |
+    | extra_refund | string | Additional information for the refund address. |
 
   </TabItem>
   <TabItem value="errors" label="Errors">
