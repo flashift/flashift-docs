@@ -130,6 +130,13 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   headTags: [
     {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'noindex, follow',
+      },
+    },
+    {
       tagName: 'link',
       attributes: {
         rel: 'icon',
